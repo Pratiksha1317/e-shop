@@ -1,0 +1,27 @@
+{% extends 'shop/basic.html' %}
+{% block title%} My Awesome Cart Tracker{% endblock %}
+{% block body %}
+<div class="container">
+
+    <div class="col my-4">
+
+        <h2 style="color:red;">Payment status regarding your order Id: {{response.ORDERID}}</h2>
+        <h6>Your Transaction ID: {{response.TXNID}}</h6>
+        <h6>Your Transaction Amount: {{response.TXNAMOUNT}}</h6>
+        <h6>Your Transaction Date: {{response.TXNDATE}}</h6>
+        <h6>Your Transaction Status: {{response.STATUS}}</h6>
+        <h6>Your Transaction Bank: {{response.BANKNAME}}</h6>
+        {% if response.RESPCODE == '01' %}
+        <h4 style="color:blue;">Thanks for ordering with us. Your order id is {{response.ORDERID}}. Use it to track your order using our order tracker</h4>
+        {% else %}
+        ORDER FAILURE
+        {% endif%}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
